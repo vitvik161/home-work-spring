@@ -14,7 +14,7 @@ public class Account {
     private String currency;
     private LocalDate createDate;
 
-    @Autowired
+    //@Autowired
     public Account(int sum, String currency, LocalDate createDate) {
         this.sum = sum;
         this.currency = currency;
