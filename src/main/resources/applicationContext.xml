@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="accountBean" class="org.example.Account">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="RUB"/>
+        <constructor-arg index="2" ref="localdate"/>
+    </bean>
+
+    <bean id="accountBean01" class="org.example.Account">
+        <constructor-arg index="0" value="2"/>
+        <constructor-arg index="1" value="RUB"/>
+        <constructor-arg index="2" ref="localdate01"/>
+    </bean>
+
+    <bean id="localdate" class="java.time.LocalDate">
+        <constructor-arg index="0" value="2021"/>
+        <constructor-arg index="1" value="01"/>
+        <constructor-arg index="2" value="01"/>
+    </bean>
+
+    <bean id="localdate01" class="java.time.LocalDate">
+        <constructor-arg index="0" value="2021"/>
+        <constructor-arg index="1" value="02"/>
+        <constructor-arg index="2" value="02"/>
+    </bean>
+
+    <bean id="clientBean" class="org.example.Client">
+
+        <constructor-arg index="0" value="18"/>
+        <constructor-arg index="1" value="Ivan"/>
+        <constructor-arg index="2">
+            <list>
+                <ref bean="accountBean" />
+                <ref bean="accountBean01" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>
